@@ -31,10 +31,16 @@ public class Cat implements Comparable<Cat> {
 	}
 	private int weight;
 
-	public String toString() {
-		return height + "|" + weight;
-	}
-	public int compareTo(Cat o) {
+	public int compareTo(Object o) {
 		return comparator.compare(this, o);
+	}
+
+
+	@Override
+	public String toString() {
+		return "Cat{" +
+				"height=" + height +
+				", weight=" + weight +
+				'}';
 	}
 }

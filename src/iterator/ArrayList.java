@@ -21,7 +21,6 @@ public class ArrayList implements Collection{
         return index;
     }
 
-    @Override
     public Iterator iterator() {
         return new ArrayListIterator();
     }
@@ -29,14 +28,12 @@ public class ArrayList implements Collection{
     private class ArrayListIterator implements  Iterator{
 
         private  int currentIndex = 0;
-        @Override
         public Object next() {
             Object o = objects[currentIndex];
             currentIndex ++ ;
             return o;
         }
 
-        @Override
         public boolean hasNext() {
             if (currentIndex >= index)
                 return false;

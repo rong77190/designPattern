@@ -22,7 +22,6 @@ public class LinkList implements Collection{
         return size;
     }
 
-    @Override
     public Iterator iterator() {
         return null;
     }

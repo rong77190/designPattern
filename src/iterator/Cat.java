@@ -19,10 +19,22 @@ public class Cat {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "id=" + id +
-                '}';
+    private int weight;
+    private int height;
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

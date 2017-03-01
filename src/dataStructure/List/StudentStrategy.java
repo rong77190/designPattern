@@ -8,7 +8,7 @@ public class StudentStrategy implements Strategy {
         if (obj1 instanceof Student && obj2 instanceof Student){
             Student student1 = (Student)obj1;
             Student student2 = (Student)obj2;
-            return (student1.getAge()==student2.getAge());
+            return (student1.getId()==student2.getId());
         }else
             return false;
     }

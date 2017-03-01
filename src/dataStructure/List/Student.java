@@ -9,6 +9,12 @@ public class Student implements Comparable<Student> {
     public String name;
     public int age;
 
+    public Student(){}
+    public Student(int id,String name,int age){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
     private Comparator<Student> comparator =  new AgeComparator();
     public Comparator getComparator() {
         return comparator;

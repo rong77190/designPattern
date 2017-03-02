@@ -4,7 +4,6 @@ package chain;
  * Created by Administrator on 2017/1/24/024.
  */
 public class NumberFilter implements MyFilter {
-    @Override
     public String doFilter(String msg) {
 //        String numberPattern="^[0-9]";
 //        if(!PatternMatcher.isMatch(numberPattern,msg)){

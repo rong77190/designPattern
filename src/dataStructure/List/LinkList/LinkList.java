@@ -1,8 +1,6 @@
 package dataStructure.List.LinkList;
 
-import dataStructure.List.List;
-import dataStructure.List.OutOfBoundaryException;
-import dataStructure.List.Strategy;
+import dataStructure.List.*;
 import dataStructure.SLNode;
 
 /**
@@ -14,7 +12,8 @@ public class LinkList implements List {
     private int size;
 
     public LinkList(){
-
+        head = new SLNode();
+        size = 0;
     }
     public LinkList(Strategy strategy){
         this.strategy= strategy;
@@ -27,7 +26,6 @@ public class LinkList implements List {
         while (p.getNext() != null){
             if (strategy.equal(p.getNext().getData(),e))return p;
             else p = p.getNext();
-
         }
         return null;
     }
@@ -72,7 +70,7 @@ public class LinkList implements List {
         SLNode p = head.getNext();
         int index = 0;
         while (p != null){
-            if (strategy.equal(p.getNext().getData(),e)){
+            if (strategy.equal(p.getData(),e)){
                 return index;
             }else {
                 index++;
@@ -111,8 +109,8 @@ public class LinkList implements List {
                 p.setNext(q);
                 size++;
                 return true;
-
             }
+
         }
         return false;
     }
@@ -151,5 +149,46 @@ public class LinkList implements List {
             throw new OutOfBoundaryException("错误，指定的插入序号越界。");
         SLNode p = getNode(i);
         return p.getData();
+    }
+
+    public static void main(String []args){
+        Strategy strategy = new StudentStrategy();
+        Student[] student ={new Student(1,"zhangsan",11),new Student(2,"lisi",13),new Student(3,"wangwu",12)};
+        LinkList linkList = new LinkList(strategy);
+
+        for (int i = 0; i < student.length ; i ++){
+            linkList.insert(i,student[i]);
+        }
+
+
+        System.out.println("链表的大小:"+linkList.getSize());
+
+        System.out.println("链表第一个元素："+linkList.get(0));
+
+        System.out.println("张三在哪个位置："+linkList.indexOf(student[0]));
+        System.out.println("sdfasdfasfdsdsfds");
+        Student newStudent = new Student(4,"zhaoliu",19);
+        Student newStudent2 = new Student(5,"qianba",14);
+
+        System.out.println("后插入成功？"+linkList.insertAfter(student[0],newStudent));
+        System.out.println("前插入成功？"+linkList.insertBefore(student[0],newStudent2));
+        System.out.println("afsdfad");
+        System.out.println("是否为空："+linkList.isEmpty());
+
+        System.out.println("现在的长度"+linkList.getSize());
+
+        System.out.println("删除第0个并且打印"+linkList.remove(0));
+
+        System.out.println("删除成功？"+linkList.remove(newStudent));
+
+        System.out.println("是否包含zhaoliu? "+linkList.contain(newStudent));
+
+        System.out.println("是否包含zhangsan? "+linkList.contain(student[0]));
+
+
+
+
+
+
     }
 }

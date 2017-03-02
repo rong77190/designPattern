@@ -20,19 +20,20 @@ public class StackArray implements Stack {
     }
     //数据元素 e 入栈
     public void push(Object e) {
-    if (getSize()>=elements.length) expandSpace();
-    elements[++top] = e;
+        if(getSize() >= elements.length)
+            expandSpace();
+        elements[++top] = e;
     }
     private void expandSpace(){
-    Object[] a = new Object[elements.length*2];
-    for (int i=0; i<elements.length; i++)
-    a[i] = elements[i];
-    elements = a;
+        Object[] a = new Object[elements.length*2];
+        for (int i=0; i<elements.length; i++)
+            a[i] = elements[i];
+            elements = a;
     }
     //栈顶元素出栈
     public Object pop() throws StackEmptyException {
-    if (getSize()<1)
-    throw new StackEmptyException("错误，堆栈为空。");
+        if (getSize()<1)
+            throw new StackEmptyException("错误，堆栈为空。");
         Object obj = elements[top];
         elements[top--] = null;
         return obj;

@@ -38,6 +38,9 @@ public class BubbleSort {
 
 
     public static void main(String[] args) {
+
+
+
         int[] a = {8,3,5,7,2,4,9,0,1,6};
         bubbleSort(a,0,9);
         for (int i = 0;i < a.length;i++){

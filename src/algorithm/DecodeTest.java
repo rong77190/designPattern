@@ -52,7 +52,6 @@ public class DecodeTest {
             }
         }
         return -1;
-
     }
 
 }

@@ -1,4 +1,4 @@
-package dataStructure.StackAndQueue;
+package dataStructure.StackAndQueue.stack;
 
 public class StackEmptyException extends RuntimeException{
 public StackEmptyException(String err) {

@@ -1,7 +1,6 @@
 package dataStructure.StackAndQueue.stack;
 
 import dataStructure.SLNode;
-import dataStructure.StackAndQueue.StackEmptyException;
 
 public class StackSLinked implements Stack {
 private SLNode top;  //链表首结点引用

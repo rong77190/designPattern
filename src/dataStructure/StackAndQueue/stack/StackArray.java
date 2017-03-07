@@ -1,7 +1,5 @@
 package dataStructure.StackAndQueue.stack;
 
-import dataStructure.StackAndQueue.StackEmptyException;
-
 public class StackArray implements Stack {
     private final int LEN = 8;  //数组的默认大小
     private Object[] elements;  //数据元素数组

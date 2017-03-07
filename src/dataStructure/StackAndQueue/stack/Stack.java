@@ -1,7 +1,5 @@
 package dataStructure.StackAndQueue.stack;
 
-import dataStructure.StackAndQueue.StackEmptyException;
-
 /**
  * Created by Administrator on 2017/2/28/028.
  */

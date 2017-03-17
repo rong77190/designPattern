@@ -159,7 +159,5 @@ public class ListArray implements List {
         System.out.println("是否包含zhangsan? "+listArray.contain(student[0]));
 
 
-
-
     }
 }

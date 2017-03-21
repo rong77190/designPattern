@@ -1,12 +1,12 @@
-package Concurrent.semaphore;
+package Concurrent.semaphore.test03.test02;
 
 /**
  * Created by Administrator on 2017/3/13/013.
  */
-public class ThreadB extends Thread {
+public class ThreadC extends Thread {
     private Service service;
 
-    public ThreadB(Service service){
+    public ThreadC(Service service){
         super();
         this.service = service;
     }

@@ -1,4 +1,4 @@
-package Concurrent.semaphore.test03.test02;
+package Concurrent.semaphore.test04;
 
 /**
  * Created by Administrator on 2017/3/13/013.

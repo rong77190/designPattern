@@ -110,7 +110,7 @@ public class TSP {
 		}
 		for(int k=0;k<100;k+=1){
 
-			TSP tsp = new TSP(new File("input.txt"),a);
+			TSP tsp = new TSP(new File("src/algorithm/TSP/input.txt"),a);
 			boolean isStep6;
 			boolean flag=true;
 			while(flag){

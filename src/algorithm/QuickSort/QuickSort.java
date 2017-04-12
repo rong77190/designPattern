@@ -60,10 +60,42 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] a = {8,3,5,7,2,4,9,0,1,6};
 
-        quickSort(a,0,9);
+        quick(a,0,9);
         for (int i = 0;i < a.length;i++){
             System.out.print(a[i]+" ");
         }
+
     }
+
+
+
+    public static int p(int[] a, int low ,int high){
+        int p = a[low];
+        while (low < high){
+            while (low < high && a[high] > p)
+                high--;
+            a[low] = a[high];
+            while (low < high && a[low] < p)
+                low++;
+            a[high] = a[low];
+
+        }
+        a[low] = p;
+        return low;
+    }
+
+    public static void quick(int[] a,int low,int high){
+        if (low < high){
+            for (int i = 0;i < a.length;i++){
+                System.out.print(a[i]+" ");
+            }
+            System.out.println();
+
+            int pa = p(a,low,high);
+            quick(a,low,pa-1);
+            quick(a,pa+1,high);
+        }
+    }
+
 
 }

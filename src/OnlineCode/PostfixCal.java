@@ -8,11 +8,44 @@ public class PostfixCal {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String str = s.nextLine();
-        System.out.println(postfixCal(str));
-        TextArea ta = new TextArea("Hello", 5, 5);
+//        System.out.println(postfixCal(str));
+//        TextArea ta = new TextArea("Hello", 5, 5);
+        String[] a = str.split(" ");
+        evalRPN(a);
     }
 
 
+
+    public static int evalRPN(String[] tokens) {
+        Stack<Integer> stack = new Stack<Integer>();
+        for(int i = 0;i<tokens.length;i++){
+            try{
+                int num = Integer.parseInt(tokens[i]);
+                stack.add(num);
+            }catch (Exception e) {
+                int b = stack.pop();
+                int a = stack.pop();
+                stack.add(get(a, b, tokens[i].charAt(0)));
+            }
+        }
+        return stack.pop();
+    }
+
+
+    private static int get(int a,int b,char operator){
+        switch (operator) {
+            case '+':
+                return a+b;
+            case '-':
+                return a-b;
+            case '*':
+                return a*b;
+            case '/':
+                return a/b;
+            default:
+                return 0;
+        }
+    }
 
 
     public static int postfixCal(String str) {

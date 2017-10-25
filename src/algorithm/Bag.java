@@ -53,10 +53,11 @@ public class Bag {
 //                    dp[j] = Math.max(dp[j] , dp[j-arr[i]] +arr[i]);
 //                }
 //            }
+
             int[] dp = new int[sum/2 + 1];
-            for (int i = 0; i < n; i++){
-                for (int j = sum/2; j>= arr[i];j--){
-                    dp[j] =  Math.max(dp[j],dp[j-arr[i]]+arr[i]);
+            for(int i = 0;i < n;i++){
+                for (int j = sum/2; j >= arr[i];j --){
+                    dp[j] = Math.max(dp[j],dp[j-arr[i]]+arr[i]);
                 }
             }
 

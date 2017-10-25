@@ -18,7 +18,6 @@ public class Dog implements java.lang.Comparable {
 		this.food = food;
 	}
 
-	@Override
 	public int compareTo(Object o) {
 		Dog d = (Dog)o;
 		if(this.food > d.getFood()) return 1;

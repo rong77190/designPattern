@@ -24,7 +24,6 @@ public class MergeSort   {
             }else {
                 b[k++] = a[t++];
             }
-
         }
         while (s <= q){
             b[k++] = a[s++];
@@ -36,7 +35,6 @@ public class MergeSort   {
             a[p+i] = b [i];
         }
     }
-
 
     public void mergeSort(Object[] a ,int low ,int high){
         if (low < high){

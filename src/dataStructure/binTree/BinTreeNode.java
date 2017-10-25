@@ -3,6 +3,8 @@ package dataStructure.binTree;
 import dataStructure.List.LinkList.LinkedList;
 import dataStructure.List.LinkList.LinkedListDLNode;
 import dataStructure.Node;
+import dataStructure.StackAndQueue.queue.Queue;
+import dataStructure.StackAndQueue.queue.QueueArray;
 import dataStructure.StackAndQueue.stack.StackSLinked;
 import jdk.nashorn.internal.ir.BinaryNode;
 
@@ -127,4 +129,17 @@ public class BinTreeNode  implements Node {
 //        Stack stack = new StackSLinked();
 //        while (p != null)
 //    }
+
+//    /使用对列完成二叉树的按层遍历
+    private void levelOrderTraverse(BinTreeNode rt, LinkedList list){
+        if (rt==null) return;
+        QueueArray q = new QueueArray();
+        q.enqueue(rt);      //根结点入队
+        while (!q.isEmpty()){
+            BinTreeNode p = (BinTreeNode)q.dequeue();  //取出队首结点p并访问
+            list.insertLast(p);
+            if (p.hasLChild()) q.enqueue(p.getLChild());//将p的非空左右孩子依次入队
+            if (p.hasRChild()) q.enqueue(p.getRChild());
+        }
+    }
 }

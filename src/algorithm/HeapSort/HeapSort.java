@@ -2,73 +2,53 @@ package algorithm.HeapSort;
 
 import dataStructure.List.Strategy;
 
+import java.util.Arrays;
+
 /**
  * Created by Administrator on 2017/3/4/004.
  */
 public class HeapSort {
-    private Strategy strategy;
-    public HeapSort(){}
-    public HeapSort(Strategy strategy){
-        this.strategy = strategy;
+    public  void heapAdjust(int[] a , int i,int n){
+        int largest;
+        int leftIndex = 2 * i + 1;
+        int rightIndex = leftIndex + 1;
+        if (leftIndex < n && a[leftIndex] > a[i]) {
+            largest = leftIndex;
+        }else {
+            largest = i;
+        }
+        if (rightIndex < n && a[rightIndex] > a[largest]) {
+            largest = rightIndex;
+        }
+        if (largest != i){
+            int t = a[i];
+            a[i] = a[largest];
+            a[largest] = t;
+            heapAdjust(a,largest,n);
+        }
     }
+    public void heapSort(int[] a,int n){
+        //建堆
+        for (int i = n/2-1 ; i >= 0; i--) {
+            heapAdjust(a, i, n);
+        }
 
-    public  void heapAdjust(Object[] objects,int low ,int high){
-        Object temp =  objects[low];
-        for(int j = 2 * low;j <= high ;j = j*2){
-            if( j < high && strategy.compareTo(objects[j],objects[j + 1])< 0){
-                j++;
-            }
-            if (strategy.compareTo(objects[j],temp)>=0){
-                break;
-            }
-            objects[low] = objects[j];
-            low = j;
-        }
-        objects[low] = temp;
-    }
-    public  void heapAdjust(int[] a , int low ,int high){
-        int temp = a[low];
-        for (int i = 2 *low; i < high; i = i * 2){
-            if(i < high && a[i]< a[i+1]){
-                i++;
-            }
-            if (a[i] > temp){
-                break;
-            }
-            a[low] = a[i];
-            low = i;
-        }
-        a[low] = temp;
-    }
-
-    public void heapSort(int[] a){
-        int n = a.length;
-        for (int i  = n/2; i >= 1; i--){
-            heapAdjust(a,i,n);
-        }
-        for ( int i = n ;i > 1; i --){
-            int temp  = a[1];
-            a[1] = a[i];
+        for ( int i = n - 1;i >= 3+1; i --){
+            int temp  = a[0];
+            a[0] = a[i];
             a[i] = temp;
-            heapAdjust(a,1,i-1);
+            System.out.println(Arrays.toString(a));
+            heapAdjust(a,0,i);
         }
     }
 
-    public void heapSort(Object[] objects){
-        int n = objects.length-1;
-        for(int i = n/2; i >= 1;i --){
-            heapAdjust(objects,i,n);
-        }
-        for (int i = n; i > 1 ; i--){
-            Object temp = objects[1];
-            objects[1] = objects[i];
-            objects[i] = temp;
-            heapAdjust(objects,1,i-1);
-        }
 
-
+    public static void main(String[] args) {
+        HeapSort heapSort = new HeapSort();
+        int[] a = {2,3,5,8,1,9,4};
+        heapSort.heapSort(a,a.length);
+        System.out.println(Arrays.toString(a));
     }
-
 
 
 

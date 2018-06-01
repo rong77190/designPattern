@@ -10,4 +10,5 @@ public class Adapter {
     public void Adapter(Adaptee adaptee){
         this.adaptee = adaptee;
     }
+
 }
